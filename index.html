@@ -10,13 +10,54 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand">Shape Calculator</a>
+  <div class="navbar">
+    <div>
+      <img src="" alt="BW" />
     </div>
-  </nav>
+  </div>
   <div class="container">
-    Shape Calculator
+    <div>
+      <h3>Welcome to Shape Calculator</h3>
+    </div>
+    <div>
+      Shape Cacluator is interactive Web application. To the right you will 3 step application. Follow the instructions
+      in each step. Clicking cancel will take you back to Step 1. Enjoy!
+    </div>
+    <div>
+      <h5>Step 1 - Select Your Shape</h5>
+      <form name="step1">
+        <label>
+          <input type="radio" name="shape" value="Reactagle" />
+          Reactagle
+        </label>
+        <label>
+          <input type="radio" name="shape" value="Circle" />
+          Circle
+        </label>
+        <label>
+          <input type="radio" name="shape" value="Square" />
+          Square
+        </label>
+        <label>
+          <input type="radio" name="shape" value="Eclipse" />
+          Eclipse
+        </label>
+        <button>Next</button>
+        <button>Cancel</button>
+      </form>
+    </div>
+    <div>
+      <h5>Step 2 - Insert your values</h5>
+      <form name="step2">
+        You have selected a reactagle, please input the required variables
+        <label>
+          Diameter
+          <input type="text" name="diameter" value="Eclipse" />
+        </label>
+        <button>Next</button>
+        <button>Cancel</button>
+      </form>
+    </div>
   </div>
   <script src="./dist/app.bundle.js"></script>
 </body>
