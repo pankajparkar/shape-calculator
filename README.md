@@ -1,2 +1,1 @@
-# shape-calculator
-Shape Calculator
+# Shape Calculator
