@@ -43,11 +43,11 @@
         </label>
       </form>
       <div class="footer">
-        <button>Next</button>
-        <button>Cancel</button>
+        <button class="next">Next</button>
+        <button class="cancel">Cancel</button>
       </div>
     </div>
-    <div class="step" style="display: none">
+    <div class="step">
       <h5>Step 2 - Insert your values</h5>
       You have selected a reactagle, please input the required variables
       <form name="step2">
@@ -57,20 +57,21 @@
         </label>
       </form>
       <div class="footer">
-        <button>Next</button>
-        <button>Cancel</button>
+        <button class="next">Next</button>
+        <button class="cancel">Cancel</button>
       </div>
     </div>
-    <div class="step" style="display: none">
+    <div class="step">
       <h5>Step 3 - Your results</h5>
       You have calculated the area of reactagle to xx. Below is your result:
       <h6>
         The area is xx
       </h6>
+      <div class="footer">
+        <button class="start-over" onclick="startOver()">Start Over</button>
+      </div>
     </div>
-    <div class="footer">
-      <button>Start Over</button>
-    </div>
+    
   </div>
   <script src="./dist/app.bundle.js"></script>
 </body>
