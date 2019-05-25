@@ -4,10 +4,16 @@ export class Circle extends Shape {
     constructor () {
         super('Circle');
     }
+    getParameters () {
+        return [
+            'diameter'
+        ]
+    }
     setDimensions (diameter) {
-        this.radius = diameter / 2;
+        this.diameter = diameter;
     }
     calculateArea () {
-        return 3.14 * this.radius * this.radius;
+        const radius = diameter / 2;
+        return 3.14 * radius * radius;
     }
 }

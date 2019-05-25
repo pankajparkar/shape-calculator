@@ -4,6 +4,12 @@ export class Rectangle extends Shape {
     constructor () {
         super('Rectangle');
     }
+    getParameters () {
+        return [
+            'width',
+            'height'
+        ]
+    }
 
     setDimensions (width, height) {
         this.width = width

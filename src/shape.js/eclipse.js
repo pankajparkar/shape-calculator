@@ -4,6 +4,12 @@ export class Eclipse extends Shape {
     constructor () {
         super('Eclipse');
     }
+    getParameters () {
+        return [
+            'height',
+            'width'
+        ]
+    }
 
     setDimensions (height, width) {
         this.height = height;

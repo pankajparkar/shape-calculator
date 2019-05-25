@@ -4,6 +4,11 @@ export class Square extends Shape {
     constructor () {
         super('Square');
     }
+    getParameters () {
+        return [
+            'width'
+        ]
+    }
 
     setDimensions (width) {
         this.width = width
