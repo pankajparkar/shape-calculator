@@ -1,0 +1,15 @@
+body {
+    margin: 0 auto;
+    font-size: 14px;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    background: #53c5a1;
+}
+
+.logo {
+    width: 100px;
+    height: 60px;
+    padding: 10px;
+}

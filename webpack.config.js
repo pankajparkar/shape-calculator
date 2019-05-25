@@ -26,7 +26,8 @@ module.exports = {
       title: 'Development'
     }),
     new CopyPlugin([
-      { from: './favicon.ico', to: './' }
+      { from: './favicon.ico', to: './' },
+      { from: './assets', to: './assets' }
     ]),
   ],
   output: {
