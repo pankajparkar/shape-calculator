@@ -21,6 +21,11 @@ export class StepCard {
         }
     }
 
+    bindEvent (className, callback) {
+        document.querySelector(`.${className}`)
+            .addEventListener('click', callback)
+    }
+
     attachTemplate () {
         const stepWrapper = document.querySelector('.step-wrapper');
         this.emptyDom(stepWrapper);

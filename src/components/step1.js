@@ -24,11 +24,6 @@ export class ShapeSelectionComponent extends StepCard {
         this.cancel = cancel;
     }
 
-    bindEvent (className, callback) {
-        document.querySelector(`.${className}`)
-            .addEventListener('click', callback)
-    }
-
     init () {
         // attach html to DOM
         this.attachTemplate();
