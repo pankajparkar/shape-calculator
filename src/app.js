@@ -74,8 +74,8 @@ function init () {
   // next();
 }
 
-function showSelectionScreen (step, currentStep) {
-  var shapeSelection = new ShapeSelectionComponent(step, getShapes, currentStep.next, currentStep.cancel)
+function showSelectionScreen (currentStep) {
+  var shapeSelection = new ShapeSelectionComponent(currentStep, getShapes)
   shapeSelection.init();
 }
 
@@ -132,7 +132,7 @@ window.addEventListener('DOMContentLoaded', () => {
       next: () => {
         step = 1
         const currentStep = steps[step - 1];
-        showSelectionScreen(shape, currentStep);
+        showSelectionScreen(currentStep);
       }
     }
   ]
@@ -141,7 +141,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const currentStep = steps[step - 1];
 
-  showSelectionScreen(shape, currentStep);
+  showSelectionScreen(currentStep);
   
   // Ask for parameters
 

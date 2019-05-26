@@ -18,10 +18,10 @@ const footer = `
 `
 
 export class ShapeSelectionComponent extends StepCard {
-    constructor (step, getShapes, next, cancel) {
-        super(header(step), content(step, getShapes), footer)
-        this.next = next;
-        this.cancel = cancel;
+    constructor (currentStep, getShapes) {
+        super(header(currentStep.step), content(currentStep.step, getShapes), footer)
+        this.next = currentStep.next;
+        this.cancel = currentStep.cancel;
     }
 
     init () {

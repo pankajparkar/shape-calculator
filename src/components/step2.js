@@ -1,16 +1,19 @@
 import { StepCard } from "./stepCard";
 
-const header = step => `Step ${step} - Select Your Shape`
-const content = (step, getShapes) => {
-    return `<form name="step${step}">
-        ${(() => {
-            const shapes = getShapes();
-            return shapes.map(s => `<label>
-                <input type="radio" name="shape" value="${s}" />
-                ${s}
-            </label>`).join('')
-        })()}
-    </form>`
+const header = step => `Step ${step} - Insert your values`
+const content = (step, shape) => {
+    return `
+        <form name="step${step}">
+            You have selected a reactagle, please input the required variables
+            ${(() => {
+                const parameters = shape.getParameters();
+                return parameters.map(parameter => `<label>
+                    ${parameter}
+                    <input type="text" name="${width}" />
+                </label>`).join('')
+            })()}
+        </form>
+    `
 }
 const footer = `
     <button class="next">Next</button>
@@ -18,10 +21,10 @@ const footer = `
 `
 
 export class ShapeInputsComponent extends StepCard {
-    constructor (step, getShapes, next, cancel) {
-        super(header(step), content(step, getShapes), footer)
-        this.next = next;
-        this.cancel = cancel;
+    constructor (currentStep, shape) {
+        super(header(currentStep.step), content(currentStep.step, shape), footer)
+        this.next = currentStep.next;
+        this.cancel = currentStep.cancel;
     }
 
     init () {
@@ -29,7 +32,7 @@ export class ShapeInputsComponent extends StepCard {
         this.attachTemplate();
 
         // attach events
-        this.bindEvent('next', this.next);
-        this.bindEvent('cancel', this.cancel);
+        if (this.next) this.bindEvent('next', this.next);
+        if (this.cancel) this.bindEvent('cancel', this.cancel);
     }
 } 
