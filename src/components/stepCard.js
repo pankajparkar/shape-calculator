@@ -15,4 +15,16 @@ export class StepCard {
         this.template = createTemplate(header, content, footer);
     }
 
+    emptyDom (myNode) {
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+        }
+    }
+
+    attachTemplate () {
+        const stepWrapper = document.querySelector('.step-wrapper');
+        this.emptyDom(stepWrapper);
+        stepWrapper.innerHTML = this.template;
+    }
+
 } 

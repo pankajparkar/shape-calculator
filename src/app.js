@@ -25,7 +25,7 @@ function getCurrentStep (step) {
   return currentStep;
 }
 
-async function next() {
+const next = async () => {
   const currentStep = getCurrentStep(step);
   const prevStep = step - 1;
   switch (prevStep) {
@@ -62,30 +62,32 @@ async function next() {
   }
 }
 
+const cancel = () => {
+  step = 1;
+  next()
+}
+
 function init () {
   // TODO: Refactor
-  const nextButton = Array.from(document.getElementsByClassName('next'))
-  nextButton.forEach(
-    button => button.addEventListener('click', () => {
-      ++step;
-      next();
-    })
-  )
-  // TODO: Refactor
-  const cancelButton = Array.from(document.getElementsByClassName('cancel'))
-  cancelButton.forEach(
-    button => button.addEventListener('click', () => {
-      step = 1;
-      next()
-    })
-  )
+  // const nextButton = Array.from(document.getElementsByClassName('next'))
+  // nextButton.forEach(
+  //   button => button.addEventListener('click', () => {
+  //     ++step;
+  //     next();
+  //   })
+  // )
+  // // TODO: Refactor
+  // const cancelButton = Array.from(document.getElementsByClassName('cancel'))
+  // cancelButton.forEach(
+  //   button => button.addEventListener('click', cancel)
+  // )
 
-  const startOverButton = document.querySelector('.start-over');
-  startOverButton.addEventListener('click', () => {
-    step = 1;
-    next()
-  })
-  next();
+  // const startOverButton = document.querySelector('.start-over');
+  // startOverButton.addEventListener('click', () => {
+  //   step = 1;
+  //   next()
+  // })
+  // next();
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -93,7 +95,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
   init();
 
-  var test = new ShapeSelectionComponent(1, getShapes)
+  var test = new ShapeSelectionComponent(1, getShapes, next, cancel)
+  test.init();
   
   // Ask for parameters
 

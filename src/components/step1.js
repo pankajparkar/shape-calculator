@@ -18,13 +18,23 @@ const footer = `
 `
 
 export class ShapeSelectionComponent extends StepCard {
-    constructor (step, getShapes) {
+    constructor (step, getShapes, next, cancel) {
         super(header(step), content(step, getShapes), footer)
-        console.log(this.template);
+        this.next = next;
+        this.cancel = cancel;
+    }
+
+    bindEvent (className, callback) {
+        document.querySelector(`.${className}`)
+            .addEventListener('click', callback)
     }
 
     init () {
         // attach html to DOM
+        this.attachTemplate();
+
         // attach events
+        this.bindEvent('next', this.next);
+        this.bindEvent('cancel', this.cancel);
     }
 } 
