@@ -38,15 +38,22 @@ function init () {
       next()
     })
   )
+
+  const startOverButton = document.querySelector('.start-over');
+  startOverButton.addEventListener('click', () => {
+    step = 1;
+    next()
+  })
   next();
 }
 
 window.addEventListener('DOMContentLoaded', () => {
   console.log('Html Loaded...');
 
+  init();
+
   // Options renderer
   // const options = getShapes();
-  init();
   
   // Ask for parameters
 
