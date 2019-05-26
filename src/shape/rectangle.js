@@ -11,7 +11,7 @@ export class Rectangle extends Shape {
         ]
     }
 
-    setDimensions (width, height) {
+    setDimensions ({width, height}) {
         this.width = width
         this.height = height;
     }

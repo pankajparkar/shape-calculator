@@ -9,7 +9,7 @@ const content = (step, shape) => {
                 const parameters = shape.getParameters();
                 return parameters.map(parameter => `<label>
                     ${parameter}
-                    <input type="text" name="${width}" />
+                    <input type="text" name="${parameter}" />
                 </label>`).join('')
             })()}
         </form>

@@ -10,7 +10,7 @@ export class Square extends Shape {
         ]
     }
 
-    setDimensions (width) {
+    setDimensions ({width}) {
         this.width = width
     }
     calculateArea () {

@@ -11,7 +11,7 @@ export class Eclipse extends Shape {
         ]
     }
 
-    setDimensions (height, width) {
+    setDimensions ({height, width}) {
         this.height = height;
         this.width = width
     }

@@ -9,7 +9,7 @@ export class Circle extends Shape {
             'diameter'
         ]
     }
-    setDimensions (diameter) {
+    setDimensions ({diameter}) {
         this.diameter = diameter;
     }
     calculateArea () {
