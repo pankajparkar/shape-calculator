@@ -14,17 +14,6 @@ function getShapes () {
   ]
 }
 
-let step = 1;
-let shape;
-
-function getCurrentStep (step) {
-  const steps = Array.from(document.getElementsByClassName('step'));
-  steps.forEach(s => s.style.display = 'none');
-  const currentStep = steps[step-1];
-  currentStep.style.display = 'block';
-  return currentStep;
-}
-
 const next = async () => {
   const currentStep = getCurrentStep(step);
   const prevStep = step - 1;
@@ -62,11 +51,6 @@ const next = async () => {
   }
 }
 
-const cancel = () => {
-  step = 1;
-  next()
-}
-
 function init () {
   // TODO: Refactor
   // const nextButton = Array.from(document.getElementsByClassName('next'))
@@ -90,13 +74,74 @@ function init () {
   // next();
 }
 
+function showSelectionScreen (step, currentStep) {
+  var shapeSelection = new ShapeSelectionComponent(step, getShapes, currentStep.next, currentStep.cancel)
+  shapeSelection.init();
+}
+
 window.addEventListener('DOMContentLoaded', () => {
-  console.log('Html Loaded...');
+  let step = 1, shape;
+
+  // TODO: reset all values
+  const reset = () => {
+
+  }
+
+  const cancel = () => {
+    step = 1;
+    next()
+  }
+
+  const steps = [
+    {
+      step: 1, 
+      next: () => {
+        const value = document.querySelector("[name=step1]").shape.value;
+        // TODO: improve below
+        switch (value) {
+          case 'Rectangle':
+            shape = new Rectangle();
+            break;
+          case 'Circle':
+            shape = new Circle();
+            break;
+          case 'Square':
+            shape = new Square();
+            break;
+          case 'Eclipse':
+            shape = new Eclipse();
+            break;
+        }
+        ++step; 
+      },
+      cancel
+    },
+    {
+      step: 2, 
+      next: () => {
+        const width = document.querySelector('[name=width]').value,
+        height = document.querySelector('[name=height]').value;
+        shape.setDimensions(width, height)
+        shape.calculateArea();
+        ++step; 
+      },
+      cancel
+    },
+    {
+      step: 3, 
+      next: () => {
+        step = 1
+        const currentStep = steps[step - 1];
+        showSelectionScreen(shape, currentStep);
+      }
+    }
+  ]
 
   init();
 
-  var test = new ShapeSelectionComponent(1, getShapes, next, cancel)
-  test.init();
+  const currentStep = steps[step - 1];
+
+  showSelectionScreen(shape, currentStep);
   
   // Ask for parameters
 
