@@ -3,6 +3,7 @@ import {Rectangle} from './shape/rectangle'
 import {Circle} from './shape/circle'
 import {Eclipse} from './shape/eclipse'
 import {Square} from './shape/square'
+import {ShapeSelectionComponent} from './components/step1'
 
 function getShapes () {
   return [
@@ -92,8 +93,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   init();
 
-  // Options renderer
-  // const options = getShapes();
+  var test = new ShapeSelectionComponent(1, getShapes)
   
   // Ask for parameters
 
