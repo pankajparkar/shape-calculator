@@ -30,10 +30,23 @@ async function next() {
   switch (lastStep) {
     case 1:
       const value = document.querySelector("[name=step1]").shape.value;
-      const shapePath = './shape/'+ value.toLowerCase();
       // TODO: improve below
-      const s = (await import(shapePath))[value];
-      shape = new Rectangle();
+      switch (value) {
+        case 'Rectangle':
+          shape = new Rectangle();
+            break;
+        case 'Circle':
+          shape = new Circle();
+          break;
+        case 'Square':
+          shape = new Square();
+          break;
+        case 'Eclipse':
+          shape = new Eclipse();
+          break;
+        default:
+          break;
+      }
       console.log(shape)
       break;
     case 2:
