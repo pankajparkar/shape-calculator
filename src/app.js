@@ -26,8 +26,8 @@ function getCurrentStep (step) {
 
 async function next() {
   const currentStep = getCurrentStep(step);
-  const lastStep = step - 1;
-  switch (lastStep) {
+  const prevStep = step - 1;
+  switch (prevStep) {
     case 1:
       const value = document.querySelector("[name=step1]").shape.value;
       // TODO: improve below
@@ -55,6 +55,9 @@ async function next() {
       shape.setDimensions(width, height)
       shape.calculateArea();
       break;
+  }
+  if (step === 3) {
+    document.querySelector('.result').innerText = shape.area;
   }
 }
 
