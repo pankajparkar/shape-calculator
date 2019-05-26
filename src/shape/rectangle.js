@@ -1,4 +1,4 @@
-import { Shape } from './shape';
+import { Shape } from "./shape";
 
 export class Rectangle extends Shape {
     constructor () {
@@ -16,6 +16,6 @@ export class Rectangle extends Shape {
         this.height = height;
     }
     calculateArea () {
-        return this.height * this.width;
+        this.area = this.height * this.width;
     }
 }

@@ -1,3 +1,9 @@
+
+import {Rectangle} from './shape/rectangle'
+import {Circle} from './shape/circle'
+import {Eclipse} from './shape/eclipse'
+import {Square} from './shape/square'
+
 function getShapes () {
   return [
     'Rectangle',
@@ -8,6 +14,7 @@ function getShapes () {
 }
 
 let step = 1;
+let shape;
 
 function getCurrentStep (step) {
   const steps = Array.from(document.getElementsByClassName('step'));
@@ -17,8 +24,25 @@ function getCurrentStep (step) {
   return currentStep;
 }
 
-function next() {
+async function next() {
   const currentStep = getCurrentStep(step);
+  const lastStep = step - 1;
+  switch (lastStep) {
+    case 1:
+      const value = document.querySelector("[name=step1]").shape.value;
+      const shapePath = './shape/'+ value.toLowerCase();
+      // TODO: improve below
+      const s = (await import(shapePath))[value];
+      shape = new Rectangle();
+      console.log(shape)
+      break;
+    case 2:
+      const width = document.querySelector('[name=width]').value,
+        height = document.querySelector('[name=height]').value;
+      shape.setDimensions(width, height)
+      shape.calculateArea();
+      break;
+  }
 }
 
 function init () {
