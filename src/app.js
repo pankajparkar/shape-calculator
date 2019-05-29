@@ -5,6 +5,7 @@ import {Eclipse} from './shape/eclipse'
 import {Square} from './shape/square'
 import {ShapeSelectionComponent} from './components/step1'
 import { ShapeInputsComponent } from './components/step2';
+import { ShapeResultComponent } from './components/step3';
 
 function getShapes () {
   return [
@@ -26,18 +27,12 @@ function showSelectionScreen (currentStep) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  let step = 1, shape;
+  let step = 1, shape, steps;
 
   // TODO: reset all values
   const reset = () => {
 
   }
-
-  const cancel = () => {
-    step = 1;
-    next();
-  }
-
   const moveToNextStep = (step, currentStep) => {
     switch (step) {
       case 1:
@@ -49,13 +44,19 @@ window.addEventListener('DOMContentLoaded', () => {
         shapeInputs.init();
         break;
       case 3:
-        // let shapeSelection = new ShapeSelectionComponent(currentStep, getShapes)
-        // shapeSelection.init();
+        let shapeResult = new ShapeResultComponent(currentStep, shape)
+        shapeResult.init();
         break;
     }
   }
 
-  const steps = [
+  const cancel = () => {
+    step = 1;
+    let currentStep = steps[step - 1];
+    moveToNextStep(currentStep, shape);
+  }
+
+  steps = [
     {
       step: 1, 
       next: () => {

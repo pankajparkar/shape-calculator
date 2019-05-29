@@ -1,21 +1,19 @@
 import { StepCard } from "./stepCard";
 
 const header = step => `Step ${step} - Your results`
-const content = (step, shape) => {
-    return `
-        You have calculated the area of ${shape.name.toLowerCase()} to xx. Below is your result:
-        <h6>
-            The area is ${shape.area}
-        </h6>
-    `
+const content = (shape) => {
+    return `You have calculated the area of reactagle to xx. Below is your result:	
+    <h6>	
+      The area is ${shape.area}
+    </h6>`
 }
 const footer = `
     <button class="next">Start Over</button>
 `
 
-export class ShapeInputsComponent extends StepCard {
+export class ShapeResultComponent extends StepCard {
     constructor (currentStep, shape) {
-        super(header(currentStep.step), content(currentStep.step, shape), footer)
+        super(header(currentStep.step), content(shape), footer)
         this.next = currentStep.next;
         this.cancel = currentStep.cancel;
     }
