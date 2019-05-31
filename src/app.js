@@ -3,9 +3,9 @@ import {Rectangle} from './shape/rectangle'
 import {Circle} from './shape/circle'
 import {Eclipse} from './shape/eclipse'
 import {Square} from './shape/square'
-import {ShapeSelectionComponent} from './components/step1'
-import { ShapeInputsComponent } from './components/step2';
-import { ShapeResultComponent } from './components/step3';
+import {ShapeSelectionComponent} from './components/shape-selection'
+import { ShapeInputsComponent } from './components/shape-inputs';
+import { ShapeResultComponent } from './components/shape-result';
 
 function getShapes () {
   return [
