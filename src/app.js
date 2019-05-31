@@ -103,7 +103,7 @@ window.addEventListener('DOMContentLoaded', () => {
       next: () => {
         step = 1
         let currentStep = steps[step - 1];
-        showSelectionScreen(currentStep);
+        moveToNextStep(step, currentStep);
       }
     }
   ];
