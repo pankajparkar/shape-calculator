@@ -59,23 +59,10 @@ window.addEventListener('DOMContentLoaded', () => {
   steps = [
     {
       step: 1, 
-      next: () => {
+      next: async () => {
         const value = document.querySelector("[name=step1]").shape.value;
-        // TODO: improve below
-        switch (value) {
-          case 'Rectangle':
-            shape = new Rectangle();
-            break;
-          case 'Circle':
-            shape = new Circle();
-            break;
-          case 'Square':
-            shape = new Square();
-            break;
-          case 'Eclipse':
-            shape = new Eclipse();
-            break;
-        }
+        var SelectedShape = (await import('./shape/'+ value.toLowerCase()))[value]
+        shape = new SelectedShape();
         ++step;
         let currentStep = steps[step - 1];
         moveToNextStep(step, currentStep);
@@ -89,7 +76,6 @@ window.addEventListener('DOMContentLoaded', () => {
           a[b] = document.querySelector(`[name=${b}]`).value;
           return a;
         }, {})
-        console.log('parameters', parameters);
         shape.setDimensions(parameters)
         shape.calculateArea();
         ++step;
