@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const cancel = () => {
     step = 1;
     let currentStep = steps[step - 1];
-    moveToNextStep(currentStep, shape);
+    moveToNextStep(step, currentStep);
   }
 
   steps = [
