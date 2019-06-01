@@ -4,6 +4,12 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 select, input, button, textarea, optgroup {
   font-family: 'Roboto', sans-serif;
 }
@@ -58,6 +64,10 @@ select, input, button, textarea, optgroup {
   display: block;
 }
 
+.step .parameter {
+  text-transform: capitalize;
+}
+
 footer {
   display: flex;
   align-items: center;
@@ -76,6 +86,6 @@ footer {
   cursor: pointer;
 }
 
-.next, .start-over {
+.next {
   background: #53c5a1;
 }
