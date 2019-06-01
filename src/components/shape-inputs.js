@@ -8,7 +8,7 @@ const content = (step, shape) => {
             ${(() => {
                 const parameters = shape.getParameters();
                 return parameters.map(parameter => `<label>
-                    <div class="parameter">${parameter}</div>
+                    <div class="parameter">${parameter}:</div>
                     <input type="number" placeholder="${parameter}" name="${parameter}" required/>
                 </label>`).join('')
             })()}

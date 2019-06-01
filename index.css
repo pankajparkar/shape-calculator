@@ -68,6 +68,15 @@ select, input, button, textarea, optgroup {
   text-transform: capitalize;
 }
 
+.step input[type=number] {
+  height: 30px;
+  border-radius: 5px;
+  border: 2px solid #8e8080;
+  width: 150px;
+  padding: 0 10px;
+  text-transform: capitalize;
+}
+
 footer {
   display: flex;
   align-items: center;
@@ -88,4 +97,5 @@ footer {
 
 .next {
   background: #53c5a1;
+  margin-right: 20px;
 }
