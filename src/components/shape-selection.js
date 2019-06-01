@@ -9,20 +9,15 @@ const content = (step, shapes) => {
             </label>`).join('')
         )()}
     </form>`
-}
-const footer = `
-    <button class="next">Next</button>
-    <button class="cancel">Cancel</button>
-`
+};
 
 export class ShapeSelectionComponent extends StepCard {
     constructor (currentStep, shapes) {
         const template = {
             header: header(currentStep.step),
-            content: content(currentStep.step, shapes),
-            footer: footer
-        }
-        super(template, currentStep)
+            content: content(currentStep.step, shapes)
+        };
+        super(template, currentStep);
     }
 
     init () {

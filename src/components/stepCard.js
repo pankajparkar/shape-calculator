@@ -1,4 +1,9 @@
-const createTemplate = ({header, content, footer}) => {
+const defaultFooter = `
+    <button class="next">Next</button>
+    <button class="cancel">Cancel</button>
+`
+
+const createTemplate = ({header, content, footer = defaultFooter}) => {
     return `
         <div class="step">
             <h3 class="step-header"><b>${header}</b></h3>

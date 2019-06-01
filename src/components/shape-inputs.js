@@ -15,17 +15,12 @@ const content = (step, shape) => {
         </form>
     `
 }
-const footer = `
-    <button class="next">Next</button>
-    <button class="cancel">Cancel</button>
-`
 
 export class ShapeInputsComponent extends StepCard {
     constructor (currentStep, shape) {
         const template = {
             header: header(currentStep.step),
-            content: content(currentStep.step, shape),
-            footer: footer
+            content: content(currentStep.step, shape)
         }
         super(template, currentStep)
     }
