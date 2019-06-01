@@ -22,9 +22,12 @@ const footer = `
 
 export class ShapeInputsComponent extends StepCard {
     constructor (currentStep, shape) {
-        super(header(currentStep.step), content(currentStep.step, shape), footer)
-        this.next = currentStep.next;
-        this.cancel = currentStep.cancel;
+        const template = {
+            header: header(currentStep.step),
+            content: content(currentStep.step, shape),
+            footer: footer
+        }
+        super(template, currentStep)
     }
 
     init () {
@@ -32,7 +35,6 @@ export class ShapeInputsComponent extends StepCard {
         this.attachTemplate();
 
         // attach events
-        if (this.next) this.bindEvent('next', this.next);
-        if (this.cancel) this.bindEvent('cancel', this.cancel);
+        this.bindEvent();
     }
 } 

@@ -13,9 +13,12 @@ const footer = `
 
 export class ShapeResultComponent extends StepCard {
     constructor (currentStep, shape) {
-        super(header(currentStep.step), content(shape), footer)
-        this.next = currentStep.next;
-        this.cancel = currentStep.cancel;
+        const template = {
+            header: header(currentStep.step),
+            content: content(shape),
+            footer: footer
+        }
+        super(template, currentStep);
     }
 
     init () {
@@ -23,7 +26,6 @@ export class ShapeResultComponent extends StepCard {
         this.attachTemplate();
 
         // attach events
-        if (this.next) this.bindEvent('next', this.next);
-        if (this.cancel) this.bindEvent('cancel', this.cancel);
+        this.bindEvent();
     }
 } 

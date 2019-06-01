@@ -1,4 +1,4 @@
-const createTemplate = (header, content, footer) => {
+const createTemplate = ({header, content, footer}) => {
     return `
         <div class="step">
             <h3 class="step-header"><b>${header}</b></h3>
@@ -11,8 +11,10 @@ const createTemplate = (header, content, footer) => {
 }
 
 export class StepCard {
-    constructor (header, content, footer) {
-        this.template = createTemplate(header, content, footer);
+    constructor (template, currentStep) {
+        this.template = createTemplate(template);
+        this.next = currentStep.next;
+        this.cancel = currentStep.cancel;
     }
 
     emptyDom (myNode) {
@@ -21,15 +23,15 @@ export class StepCard {
         }
     }
 
-    bindEvent (className, callback) {
-        document.querySelector(`.${className}`)
-            .addEventListener('click', callback)
-    }
-
     attachTemplate () {
         const stepWrapper = document.querySelector('.step-wrapper');
         this.emptyDom(stepWrapper);
         stepWrapper.innerHTML = this.template;
+    }
+
+    bindEvent () {
+        if(this.next) document.querySelector('.next').addEventListener('click', this.next)
+        if(this.cancel) document.querySelector('.cancel').addEventListener('click', this.cancel)
     }
 
 } 

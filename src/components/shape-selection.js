@@ -17,9 +17,12 @@ const footer = `
 
 export class ShapeSelectionComponent extends StepCard {
     constructor (currentStep, shapes) {
-        super(header(currentStep.step), content(currentStep.step, shapes), footer)
-        this.next = currentStep.next;
-        this.cancel = currentStep.cancel;
+        const template = {
+            header: header(currentStep.step),
+            content: content(currentStep.step, shapes),
+            footer: footer
+        }
+        super(template, currentStep)
     }
 
     init () {
@@ -27,7 +30,6 @@ export class ShapeSelectionComponent extends StepCard {
         this.attachTemplate();
 
         // attach events
-        this.bindEvent('next', this.next);
-        this.bindEvent('cancel', this.cancel);
+        this.bindEvent();
     }
 } 
