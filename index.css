@@ -17,19 +17,35 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 50px;
 }
 
 .information-text {
   width: 300px;
 }
 
+.step-wrapper {
+  background: #eac868e8;
+  border-radius: 5px;
+}
+
 .step {
   width: 200px;
-  height: 330px;
-  background: #eac868e8;
-  padding: 20px;
+  height: 270px;
+  padding: 30px 20px 30px;
 }
 label {
   display: block;
 }
 
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+  bottom: 0;
+  position: fixed;
+  background: #100844;
+  width: 100%;
+  color: white;
+}
