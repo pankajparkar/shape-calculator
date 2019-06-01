@@ -1,7 +1,13 @@
-body {
+html, body {
   margin: 0 auto;
   font-size: 14px;
+  font-family: 'Roboto', sans-serif;
 }
+
+select, input, button, textarea, optgroup {
+  font-family: 'Roboto', sans-serif;
+}
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -11,7 +17,7 @@ body {
 .logo {
   width: 100px;
   height: 60px;
-  padding: 10px;
+  padding: 30px;
 }
 .container {
   display: flex;
@@ -22,6 +28,7 @@ body {
 
 .information-text {
   width: 300px;
+  padding: 0 50px;
 }
 
 .step-wrapper {
@@ -31,7 +38,7 @@ body {
 
 .step {
   width: 200px;
-  height: 270px;
+  height: 200px;
   padding: 30px 20px 30px;
 }
 label {
