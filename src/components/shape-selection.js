@@ -1,15 +1,13 @@
 import { StepCard } from "./stepCard";
 
 const header = step => `Step ${step} - Select Your Shape`
-const content = (step, getShapes) => {
+const content = (step, shapes) => {
     return `<form name="step${step}">
-        ${(() => {
-            const shapes = getShapes();
-            return shapes.map(s => `<label>
-                <input type="radio" name="shape" value="${s}" />
+        ${(() => shapes.map(s => `<label>
+            <input type="radio" name="shape" value="${s}" required/>
                 ${s}
             </label>`).join('')
-        })()}
+        )()}
     </form>`
 }
 const footer = `
@@ -18,8 +16,8 @@ const footer = `
 `
 
 export class ShapeSelectionComponent extends StepCard {
-    constructor (currentStep, getShapes) {
-        super(header(currentStep.step), content(currentStep.step, getShapes), footer)
+    constructor (currentStep, shapes) {
+        super(header(currentStep.step), content(currentStep.step, shapes), footer)
         this.next = currentStep.next;
         this.cancel = currentStep.cancel;
     }

@@ -1,6 +1,6 @@
 html, body {
   margin: 0 auto;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -37,11 +37,24 @@ select, input, button, textarea, optgroup {
 }
 
 .step {
-  width: 200px;
-  height: 200px;
-  padding: 30px 20px 30px;
+  position: relative;
+  width: 225px;
+  height: 350px;
+  padding: 10px 30px;
 }
-label {
+
+.step-content {
+  height: 240px;
+  padding: 15px 0;
+}
+
+.step-footer {
+  position: absolute;
+  bottom: 30px;
+}
+
+.step label {
+  padding: 10px 0;
   display: block;
 }
 
@@ -55,4 +68,14 @@ footer {
   background: #100844;
   width: 100%;
   color: white;
+}
+
+.next, .cancel {
+  padding: 5px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.next, .start-over {
+  background: #53c5a1;
 }

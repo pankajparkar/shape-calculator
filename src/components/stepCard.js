@@ -1,8 +1,8 @@
 const createTemplate = (header, content, footer) => {
     return `
         <div class="step">
-            <h5>${header}</h5>
-            ${content}
+            <h3 class="step-header"><b>${header}</b></h3>
+            <div class="step-content">${content}</div>
             <div class="step-footer">
                 ${footer}
             </div>

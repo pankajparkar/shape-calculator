@@ -16,27 +16,13 @@ function getShapes () {
   ]
 }
 
-const next = async () => {
-  if (step === 3) {
-    document.querySelector('.result').innerText = shape.area;
-  }
-}
-
-function showSelectionScreen (currentStep) {
-  
-}
-
 window.addEventListener('DOMContentLoaded', () => {
   let step = 1, shape, steps;
 
-  // TODO: reset all values
-  const reset = () => {
-
-  }
   const moveToNextStep = (step, currentStep) => {
     switch (step) {
       case 1:
-        let shapeSelection = new ShapeSelectionComponent(currentStep, getShapes)
+        let shapeSelection = new ShapeSelectionComponent(currentStep, getShapes())
         shapeSelection.init();
         break;
       case 2:
