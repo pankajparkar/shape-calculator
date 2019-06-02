@@ -34,9 +34,14 @@ export class StepCard {
         stepWrapper.innerHTML = this.template;
     }
 
+    attachClickEvent (selector, callback) {
+        document.querySelector(selector)
+            .addEventListener('click', callback);
+    }
+
     bindEvent () {
-        if(this.next) document.querySelector('.next').addEventListener('click', this.next)
-        if(this.cancel) document.querySelector('.cancel').addEventListener('click', this.cancel)
+        if (this.next) this.attachClickEvent('.next', this.next);
+        if (this.cancel) this.attachClickEvent('.cancel', this.cancel);
     }
 
 } 
