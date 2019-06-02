@@ -1,9 +1,5 @@
 
-import {Rectangle} from './shape/rectangle'
-import {Circle} from './shape/circle'
-import {Eclipse} from './shape/eclipse'
-import {Square} from './shape/square'
-import {ShapeSelectionComponent} from './components/shape-selection'
+import {ShapeSelectionComponent} from './components/shape-selection';
 import { ShapeInputsComponent } from './components/shape-inputs';
 import { ShapeResultComponent } from './components/shape-result';
 
@@ -13,12 +9,12 @@ function getShapes () {
     'Circle',
     'Square',
     'Eclipse'
-  ]
+  ];
 }
 
 function checkFormValidity () {
   const form = document.querySelector('.step form');
-  return form && form.checkValidity()
+  return form && form.checkValidity();
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -27,15 +23,15 @@ window.addEventListener('DOMContentLoaded', () => {
   const moveToNextStep = (step, currentStep) => {
     switch (step) {
       case 1:
-        let shapeSelection = new ShapeSelectionComponent(currentStep, getShapes())
+        let shapeSelection = new ShapeSelectionComponent(currentStep, getShapes());
         shapeSelection.init();
         break;
       case 2:
-        let shapeInputs = new ShapeInputsComponent(currentStep, shape)
+        let shapeInputs = new ShapeInputsComponent(currentStep, shape);
         shapeInputs.init();
         break;
       case 3:
-        let shapeResult = new ShapeResultComponent(currentStep, shape)
+        let shapeResult = new ShapeResultComponent(currentStep, shape);
         shapeResult.init();
         break;
     }
@@ -53,7 +49,7 @@ window.addEventListener('DOMContentLoaded', () => {
       next: async () => {
         if (!checkFormValidity()) return;
         const value = document.querySelector("[name=step1]").shape.value;
-        var SelectedShape = (await import('./shape/'+ value.toLowerCase()))[value]
+        var SelectedShape = (await require('./shape/'+ value.toLowerCase()))[value]
         shape = new SelectedShape();
         ++step;
         let currentStep = steps[step - 1];
@@ -89,9 +85,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
   let currentStep = steps[step - 1];
   moveToNextStep(step, currentStep);
-  
-  // Ask for parameters
-
-  // Show the result
 
 });
