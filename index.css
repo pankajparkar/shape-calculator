@@ -50,7 +50,8 @@ select, input, button, textarea, optgroup {
 }
 
 .step-content {
-  height: 240px;
+  height: 200px;
+  overflow: scroll;
   padding: 15px 0;
 }
 

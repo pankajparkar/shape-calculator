@@ -20,7 +20,8 @@ function checkFormValidity () {
 window.addEventListener('DOMContentLoaded', () => {
   let step = 1, shape, steps;
 
-  const moveToNextStep = (step, currentStep) => {
+  const moveToNextStep = (step) => {
+    let currentStep = steps[step - 1];
     switch (step) {
       case 1:
         let shapeSelection = new ShapeSelectionComponent(currentStep, getShapes());
@@ -38,9 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   const cancel = () => {
-    step = 1;
-    let currentStep = steps[step - 1];
-    moveToNextStep(step, currentStep);
+    moveToNextStep(step = 1);
   }
 
   steps = [
@@ -51,9 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const value = document.querySelector("[name=step1]").shape.value;
         var SelectedShape = (await require('./shape/'+ value.toLowerCase()))[value]
         shape = new SelectedShape();
-        ++step;
-        let currentStep = steps[step - 1];
-        moveToNextStep(step, currentStep);
+        moveToNextStep(++step);
       },
       cancel
     },
@@ -67,23 +64,16 @@ window.addEventListener('DOMContentLoaded', () => {
         }, {})
         shape.setDimensions(parameters)
         shape.calculateArea();
-        ++step;
-        let currentStep = steps[step - 1];
-        moveToNextStep(step, currentStep);
+        moveToNextStep(++step);
       },
       cancel
     },
     {
       step: 3, 
       next: () => {
-        step = 1
-        let currentStep = steps[step - 1];
-        moveToNextStep(step, currentStep);
+        moveToNextStep(step = 1);
       }
     }
   ];
-
-  let currentStep = steps[step - 1];
-  moveToNextStep(step, currentStep);
-
+  moveToNextStep(step = 1);
 });
