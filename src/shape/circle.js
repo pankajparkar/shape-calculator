@@ -14,6 +14,6 @@ export class Circle extends Shape {
     }
     calculateArea () {
         const radius = this.diameter / 2;
-        return 3.14 * radius * radius;
+        this.area = 3.14 * radius * radius;
     }
 }

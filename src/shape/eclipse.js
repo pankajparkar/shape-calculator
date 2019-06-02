@@ -16,6 +16,6 @@ export class Eclipse extends Shape {
         this.width = width
     }
     calculateArea () {
-        return 3.14 * this.height * this.width;
+        this.area = 3.14 * this.height * this.width;
     }
 }

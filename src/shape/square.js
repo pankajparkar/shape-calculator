@@ -14,6 +14,6 @@ export class Square extends Shape {
         this.width = width
     }
     calculateArea () {
-        return this.width * this.width;
+        this.area = this.width * this.width;
     }
 }
