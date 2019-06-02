@@ -16,6 +16,11 @@ function getShapes () {
   ]
 }
 
+function checkFormValidity () {
+  const form = document.querySelector('.step form');
+  return form && form.checkValidity()
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   let step = 1, shape, steps;
 
@@ -46,6 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
     {
       step: 1, 
       next: async () => {
+        if (!checkFormValidity()) return;
         const value = document.querySelector("[name=step1]").shape.value;
         var SelectedShape = (await import('./shape/'+ value.toLowerCase()))[value]
         shape = new SelectedShape();
@@ -58,6 +64,7 @@ window.addEventListener('DOMContentLoaded', () => {
     {
       step: 2, 
       next: () => {
+        if (!checkFormValidity()) return;
         const parameters = shape.getParameters().reduce((a, b) => {
           a[b] = document.querySelector(`[name=${b}]`).value;
           return a;
