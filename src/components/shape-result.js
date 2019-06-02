@@ -1,4 +1,4 @@
-import { StepCard } from "./stepCard";
+import { StepCard } from "./step-card";
 
 const header = step => `Step ${step} - Your results`
 const content = (shape) => {
