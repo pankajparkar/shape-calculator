@@ -23,7 +23,7 @@
     "express": "^4.15.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^0.11.2",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "http-server": "^0.11.1",
     "jasmine": "^3.4.0",
     "jasmine-es6": "^0.4.3",
